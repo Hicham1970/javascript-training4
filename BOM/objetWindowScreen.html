@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOM Window screen object</title>
+  </head>
+  <body>
+    <p id="width"></p>
+    <p id="height"></p>
+    <p id="availWidth"></p>
+    <p id="availHeight"></p>
+
+    <script>
+      document.getElementById("width").innerHTML =
+        "Screen width is " + screen.width;
+      document.getElementById("height").innerHTML =
+        "Screen height is " + screen.height;
+      document.getElementById("availWidth").innerHTML =
+        " The available Screen width is " + screen.availWidth;
+      document.getElementById("availHeight").innerHTML =
+        " The available Screen height is " + screen.availHeight;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOM Browser Object Model</title>
+  </head>
+  <body>
+    <h2>JavaScript Window</h2>
+
+    <p id="demo"></p>
+
+    <script>
+      document.getElementById("demo").innerHTML =
+        "Browser inner window width: " +
+        window.innerWidth +
+        "px<br>" +
+        "Browser inner window height: " +
+        window.innerHeight +
+        "px";
+
+      //   window.resizeTo(600, 400); // resize to 600 x 400
+      //   window.resizeBy(200, 100); // resize to 800 x 500
+    </script>
+  </body>
+</html>
