@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The object widow.location</title>
+  </head>
+  <body>
+    <p id="locationHref"></p>
+    <p id="hostName"></p>
+    <p id="localPathName"></p>
+    <p id="protocolName"></p>
+    <p id="port"></p>
+    <script>
+      // get the current url page:
+      document.getElementById("locationHref").innerHTML =
+        "The page location is :  " + window.location.href;
+      document.getElementById("hostName").innerHTML =
+        "The page local host name is :  " + window.location.hostname;
+      document.getElementById("localPathName").innerHTML =
+        "The page local path name is :  " + window.location.pathname;
+      document.getElementById("protocolName").innerHTML =
+        "The web protocol name is :  " + window.location.protocol;
+      document.getElementById("port").innerHTML =
+        "The port  is :  " + window.location.port;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>widow object</title>
+  </head>
+  <body>
+    <h2>The window object</h2>
+    <p>
+      The window object est le navigateur window, cet objet est supporté par
+      touts les navigateurs, mais certaines de ces propriétés et méthodes ne le
+      sont pas.
+    </p>
+    <p>
+      Window is the default object of the browser, et tous les objets et les
+      fonctions globals de javascript sont des objets du window.
+    </p>
+    <p>Il faut savoir que le document est un element du BOM</p>
+    <br /><br />
+    <h2>Alert</h2>
+    <button type="button">Click me!</button>
+    <script>
+      document.querySelector("button").onclick = function () {
+        alert(
+          "You clicked on me! \nHicham , comment allez vou? \nBien j’espère !"
+        );
+      };
+      //   function alert() {
+      //     window.alert(
+      //       "ALERT:\nLa temperature va chuter cette nuit. \nla population doit  se préparer au pire "
+      //     );
+      //   }
+    </script>
+  </body>
+</html>

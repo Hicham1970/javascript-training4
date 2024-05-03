@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timing Events</title>
+  </head>
+  <body>
+    <h1>Javascript Timing Intervals</h1>
+    <p>
+      The `window` object allows execution of code at specified time
+      intervals.These time intervals are called timing events.
+    </p>
+
+    <p>Click "Try it". Wait 3 seconds, and the page will alert "Hello".</p>
+
+    <button onclick="myVar = setTimeout(myFunction, 3000)">Try it</button
+    ><br /><br /><br />
+    <p>On pet annuler cette method avec la method clearTimeout(myFunction)</p>
+    <button onclick="clearTimeout(myVar)">Stop it</button>
+    <script>
+      function myFunction() {
+        alert("Hello");
+      }
+    </script>
+  </body>
+</html>

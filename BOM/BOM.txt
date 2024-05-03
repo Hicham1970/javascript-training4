@@ -1,0 +1,25 @@
+C'est quoi le BOM ?
+Browser Object Model.
+- JS Bom parle au navigateur
+- Il fait des action qui ne sont pas en relation avec la page web
+- Il fait des action qui sont en relation avec la page web mais qui n'apparaissent pas sur cette page
+-- changer l'adresse url
+-- Background requests  (chargement de fichier)
+-- Window Message : Alert , confirm, prompt
+-- Local Storage
+-- window move, window open, window close
+-- change text in the statut Bar
+
+BOM Informations
+- Bom has no standard  
+- but All Browsers influents similar Boms
+---window
+---screen
+---history
+---location
+---navigator
+---timing
+---cookies
+- collection of objects of control of the Browser
+- The default object is window
+-All global js object are members of the BOM objects

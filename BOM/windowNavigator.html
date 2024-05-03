@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Widow Navigator Object s in JavaScript</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: black;
+        color: white;
+        font-family: "Open Sans", sans-serif;
+      }
+      h2 {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        height: 5vh;
+        text-align: center;
+      }
+      p[id] {
+        color: red;
+        font-weight: bold;
+        padding-left: 20px;
+        border: 2px dotted black;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>The Navigator Object</h2>
+    <p>The cookieEnabled property returns true if cookies are enabled:</p>
+    <p id="cookies"></p>
+    <p>The appName property returns the application name of the browser:</p>
+    <p id="appName"></p>
+    <p>
+      Strange enough, "Netscape" is the application name for IE11, Chrome,
+      Firefox, and Safari.
+    </p>
+    <p>The appCodeName property returns the code name of the browser.</p>
+
+    <p id="appCodeName"></p>
+    <p>
+      Do not rely on it! "Mozilla" is the application code name for Chrome,
+      Firefox, IE, Safari, and Opera.
+    </p>
+    <p>The product property returns the product name of the browser.</p>
+    <p id="produit"></p>
+    <p>Do not rely on it! Most browsers returns "Gecko" as product name!</p>
+    <p>
+      The appVersion property returns version information about the browser:
+    </p>
+    <p id="version"></p>
+    <p>
+      The userAgent property returns the user-agent header sent by the browser
+      to the server:
+    </p>
+    <p id="userAgent"></p>
+    <p>
+      The platform property returns the browser platform (operating system):
+    </p>
+    <p id="platform"></p>
+    <p>The language property returns the browser's language:</p>
+    <p>
+      On a aussi la propriété .languages qui retourne toutes les langues
+      supportées par le browser
+    </p>
+    <p id="langue"></p>
+    <p>The onLine property returns true if the browser is online:</p>
+    <p id="online"></p>
+    <p>The javaEnabled() method returns true if Java is enabled:</p>
+    <p id="java"></p>
+    <script>
+      document.getElementById("cookies").innerHTML =
+        "There are currently " + navigator.cookieEnabled + " cookies enabled";
+      document.getElementById("appName").innerHTML =
+        "The navigator Name is  " + navigator.appName;
+      document.getElementById("appCodeName").innerHTML =
+        "The navigator  Application Code Name is  " + navigator.appCodeName;
+      document.getElementById("produit").innerHTML =
+        "The navigator  product is  " + navigator.product;
+      document.getElementById("version").innerHTML =
+        "The navigator 's version is  " + navigator.appVersion;
+      document.getElementById("userAgent").innerHTML =
+        "The user Agent is  " + navigator.userAgent;
+      document.getElementById("platform").innerHTML =
+        "The navigator platform is  " + navigator.platform;
+      document.getElementById("langue").innerHTML =
+        "Les langues supportées par le navigateur sont :  " +
+        navigator.languages;
+      document.getElementById("online").innerHTML =
+        "Est ce que le navigateur est en ligne ?? :  " + navigator.onLine;
+      document.getElementById("java").innerHTML =
+        "Est ce que java est disponible :  " + navigator.javaEnabled();
+    </script>
+  </body>
+</html>

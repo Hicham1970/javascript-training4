@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window method : Confirm</title>
+    <script>
+      let confirmation = confirm(
+        "Êtes vous sur que tu veut visiter la page de \nGoogle?"
+      );
+
+      if (confirmation) {
+        // alert("Vous avez choisi oui");
+        window.location.href = "https://www.google.com";
+      } else {
+        alert("Vous avez choisi non, alors merci d'avoir essayé");
+      }
+    </script>
+  </head>
+  <body>
+    <h2>
+      Utilisée pour confirmer le chois de l'utilisateur soit vrai soit faux,
+    </h2>
+  </body>
+</html>

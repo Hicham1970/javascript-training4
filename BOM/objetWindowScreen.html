@@ -10,6 +10,8 @@
     <p id="height"></p>
     <p id="availWidth"></p>
     <p id="availHeight"></p>
+    <p id="colorDepth"></p>
+    <p id="pixelDepth"></p>
 
     <script>
       document.getElementById("width").innerHTML =
@@ -20,6 +22,10 @@
         " The available Screen width is " + screen.availWidth;
       document.getElementById("availHeight").innerHTML =
         " The available Screen height is " + screen.availHeight;
+      document.getElementById("colorDepth").innerHTML =
+        "Screen Color Depth is: " + screen.colorDepth;
+      document.getElementById("pixelDepth").innerHTML =
+        "Screen Pixel Depth is: " + screen.pixelDepth;
     </script>
   </body>
 </html>
