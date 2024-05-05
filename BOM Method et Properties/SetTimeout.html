@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window Method setTimeout</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <button id="Stop">Click Me</button>
+    <script>
+      const btn = document.querySelector("button");
+
+      function message() {
+        document.getElementById("demo").innerHTML = "Hello World";
+      }
+      let myVar = setTimeout(message, 3000);
+
+      // clear the setTimeout
+      btn.addEventListener("click", () => {
+        clearTimeout(myVar);
+        document.getElementById("demo").innerHTML =
+          "Le setTimeout a été avorté apres le click !";
+      });
+    </script>
+  </body>
+</html>

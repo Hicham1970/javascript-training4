@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Property : Search</title>
+</head>
+
+<body>
+    <h1>Location Property : Search</h1>
+    <p id="search"></p>
+    <script>
+        /*Location Search ?
+        -- location.search nous donne le search query cad une partie de l'url de la page qui se trouve apres le point d’interrogation .
+        Quelque chose comme ça : ?q=sgs&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&sm=csrmain&pq=sgs&sc=11-3&sk=&cvid=6F79118D03814286A7C3D152D7463839&ghsh=0&ghacc=0&ghpl='
+        -- on peut utiliser la propriété location.search pour récupérer les données de la page.
+        et les modifier si on le désire
+        **/
+
+        document.getElementById('search').innerText = window.location.search; 
+    </script>
+
+</body>
+
+</html>

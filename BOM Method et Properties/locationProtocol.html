@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocol Search And PathName</title>
+</head>
+
+<body>
+    <h1>Window Properties: Location Protocol Search And PathName</h1>
+    <p id="proto1"></p>
+    <script>
+        /*Type de Protocol:
+        -- http: hypertext transfert protocol
+        -- https: hypertext transfert protocol secured
+        -- file : si j'ouvre ce fichier depuis la racine e:/ , et je demande le type de protocol avec la propriété location.protocol.
+        -- mailTo
+        -- FTP : file transfert protocol : load and unload in internet
+        Il faut savoir que toutes ces propriétés ont un get et un set cad q'un peut les appelés et les changés
+        */
+        console.log(location.protocol);
+        // Output: https: ou http: en fonction de votre navigateur et du protocole utilisé pour accéder à votre site.
+        // on peut changer notre protocol :
+        // window.location.protocol = "https";
+
+        document.getElementById('proto1').innerText = window.location.protocol;
+
+    </script>
+</body>
+
+</html>

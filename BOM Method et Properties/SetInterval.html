@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window Method ==> SetInterval and clearInterval</title>
+  </head>
+  <body>
+    <button id="click">Click me!</button>
+    <div id="show">10</div>
+    <script>
+      /*
+        *setInterval(function, milliseconds, param1, param2...).
+        clearInterval(index ou number of setTimeout)
+        */
+      var myButton = document.getElementById("click");
+      // créer le timer
+      function message() {
+        document.getElementById("show").innerHTML = "Hello World every 3s";
+      }
+      let myVar = setInterval(message, 3000);
+
+      // clear the setInterval
+      myButton.addEventListener("click", () => {
+        clearInterval(myVar);
+        document.getElementById("show").innerHTML =
+          "Le setInterval a été avorté apres le click !";
+      });
+    </script>
+  </body>
+</html>

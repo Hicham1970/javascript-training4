@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bom Properties : pageXoffset pageYoffset </title>
+    <style>
+        body {
+            width: 4000px;
+            height: 4000px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bom Properties : pageXoffset pageYoffset</h1>
+    <p>Ces 2 propriétés sont en relation avec scrollBy() methods,qui permet le déplacement de la scroll bar , cette
+        propriété pageXoffset permet de savoir de combien la scroll bar a été déplacée horizontalement et la pageYoffset
+        nous donne la valeur du déplacement vertical.</p>
+    <p>pageXoffset est equivalent a scrollX tandis que pageYoffset donne le même résultat que la scrollY</p>
+    <p id="demo"></p>
+    <button title="button" id="button">Cick Me!</button>
+    <script>
+        // let button = document.getElementById("button");
+        // button.onclick = function () {
+        //     console.log("pageXoffset : " + window.pageXOffset);
+        //     console.log("pageYoffset : " + window.pageYOffset);
+        // }
+        setInterval(function () {
+            document.getElementById("demo").innerHTML = "pageXoffset :move horizontal " + window.pageXOffset + " px " + "<br>" + "pageYoffset : Move vertical " + window.pageYOffset + " px ";
+        }, 2000);
+
+    </script>
+</body>
+
+</html>

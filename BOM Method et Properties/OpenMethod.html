@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window Method ==> Window.open()</title>
+  </head>
+  <body>
+    <button id="open">Open Link!</button>
+    <script>
+      /**Syntax:
+       * window.open(url, name or attribut, specifications or features , history replace):
+       *Specification = height=xxx, width=xxx,left=xxx, top=xxx, menubar=no/yes, status=no/yes.
+       *history replace = false/true , est ce que les pages visitée seront remplacé dans l'historique(true) ou ajouté à la suite(false).?!! */
+
+      document.getElementById("open").onclick = () => {
+        "use strict";
+        window.open(
+          "https://www.google.com",
+          "_blanc",
+          "width=600,height=600,left=300,top=400,menubar = no,status=no",
+          "true"
+        ); // Open a new tab in the browser with Google
+        // window.open("", "", "", "");// page vierge
+      };
+    </script>
+  </body>
+</html>

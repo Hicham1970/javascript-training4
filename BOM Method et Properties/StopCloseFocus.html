@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bom Methods Stop Close Focus</title>
+</head>
+
+<body>
+    <h1>Bom Methods Stop Focus and Close</h1>
+    <p>Stop() sert a stopper le loading </p>
+    <p>close() sert a fermer une page </p>
+    <p>focus() la page en avant de toutes </p>
+
+    <script>
+        // window.stop(); on peut appeler cette method au cour du chargement d'une image par exemple.
+        let myExWindow = window.open('https://www.google.com', 'Google', 'width=400 , height=400');
+        // myExWindow.close() ; // je ferme ma nouvelle page web  
+        myExWindow = window.open('https://www.google.com', 'Google', 'width=400 , height=400');
+        myExWindow.focus() // focus sur la page de google
+    </script>
+
+</body>
+
+</html>

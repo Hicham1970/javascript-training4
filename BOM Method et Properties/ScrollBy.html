@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window Method ==> window.scrollBy() and scrollTo</title>
+    <style>
+        body {
+            width: 4000px;
+            height: 4000px;
+        }
+
+        button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="scroll">Scroll!</button>
+    <script>
+        /**@Hicham1970
+         *Les deus méthodes déplacent la fenêtre vers le bas ou vers le haut,
+         *mais elles ne peuvent pas déplacer la fenêtre vers la gauche ou vers la droite.
+         *scrollBy(): déplace la fenêtre x px  et y px par rapport à sa position actuelle a chaque fois qu'on appelle cette method.
+         * scrollTo(): déplace la fenêtre  vers une coordonnée x et y dans l'espace de la page et reste sur place une fois pour toute
+         *
+         */
+        //scrollBy(x,y) x (horizontal +/-) et y (verticale +/-) sont en px.
+        //scrollTo(x,y) x (horizontal +/-) et y (verticale +/-) sont en px. 
+
+        const btn = document.getElementById("scroll");
+        btn.onclick = () => {
+            'use strict';
+            // window.scrollBy(200, 150);//On déplace la fenêtre vers la coordonnée  x=200 a gauche et y=150 px vers le bas
+            // window.console.log("window scrolled left " + window.scrollX);
+            // window.console.log("window scrolled top " + window.scrollY);
+            //---------------------
+            window.scrollTo(500, 250);//On déplace la fenêtre vers la coordonnée  x=200 a gauche et y=150 px vers le bas
+            window.console.log("window scrolled left " + window.scrollX);
+            window.console.log("window scrolled top " + window.scrollY);
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

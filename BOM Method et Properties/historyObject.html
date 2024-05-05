@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM History object</title>
+</head>
+
+<body>
+    <h1>History Object Methods</h1>
+    <a href="javascript:history.forward()">Forward</a>
+    <h2>Back Forward and Go</h2>
+    <p>The history of a web page is the previous pages visited , si on click sur le bon bouton on navigue sur les pages
+        précédentes ou les pages qui se trouvent en amant de notre page web.</p>
+    <p>The history object is a collection of URLs visited by the browser, and it is a property of the window object.</p>
+    <p>Dans Javascript on peut acceder a cet history par les methods et propriétés du BOM</p>
+    <p>Parmi les methods de l'objet history du BOM on a le back, forward et le Go</p>
+    <p>On sait maintenant ce que les methods back() et forward() font, alors c'est quoi le rôle de la method Go() ??</p>
+    <p>La method Go() accept une adresse url ou un nombre positif ou négatif.</p>
+    <p>la method history.go(2) nous mène vers les 2 pages en avant et go(-2) 2 pages en arrière ou 2 link en arrière.
+    </p>
+    <p>Le link en haut si on click dessus , il nous envoi vers une page en arrière , car une fonction javascript utilise
+        la method forward() de history.</p>
+    <p>On peut faire bcp de chose avec ces methods de history comme par exemple history.go(3) cad ramène moi au 3ème
+        link en avant de ma page actuelle.Et cette sentence on peut l'écrire dans la bare du browser</p>
+
+    <script>
+        // Pour savoir combien on a d'url dans notre history
+        // console.log(window.history.length);
+        // pour naviguer dans history:
+        // console.log(window.history.back());
+        // console.log(window.history.forward());
+
+    </script>
+</body>
+
+</html>

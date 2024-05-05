@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Properties : Location Properties </title>
+    <style>
+        div {
+            width: 1000px;
+            height: 1000px;
+            border: 2px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Location Properties : Host & Hash</h1>
+    <p>Qu 'est ce que ça veut dire ce charabia?? The host est l’hébergeur du site,
+        et le hash est l'endroit ou on se trouve dans le site. Cela signifie qu’il y a une page appelée "hash", qui est
+        un endroit dans le site.
+    </p>
+    <a href="#hicham">To The Last Div !! </a>
+    <div>Div N°1</div>
+    <div>Div N°2</div>
+    <div id="hicham">Div N°3</div>
+    <script>
+        /*Comment utiliser cette propriété .hash??
+        Supposant que je veut émettre un message juste apres qu'un visiteur cherche dans la bare de recherche .../#chat  
+        **/
+        if (window.location.hash.indexOf('hicham') > -1) {
+            window.console.log('Congratulations , you are coming from the link chat')
+        }
+
+    </script>
+
+</body>
+
+</html>

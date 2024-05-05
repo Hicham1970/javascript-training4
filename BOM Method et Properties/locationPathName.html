@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Property: PathName</title>
+</head>
+
+<body>
+    <h1>Location Property: PathName</h1>
+    <p id="dem"></p>
+    <p id="demo"></p>
+    <p id="url"></p>
+    <script>
+        /*PathName: Returns the pathname property of a Location object.
+        c'est la partie de l'url qui suit la location.host http://127.0.0.1:3000*/
+        document.getElementById('demo').innerText = "The pathName is : " + window.location.pathname;
+
+        document.getElementById('dem').innerText = "The host is : " + window.location.host + "  et le localhost est : " + window.location.hostname;
+
+        document.getElementById('url').innerText = "L'adresse totale est :  http://" + location.hostname + location.port + location.pathname + location.search;
+    </script>
+</body>
+
+</html>
