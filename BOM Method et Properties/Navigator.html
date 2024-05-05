@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The navigator Object </title>
+</head>
+
+<body>
+    <h1>the BOM object : the navigator</h1>
+    <p>
+        The navigator ? c'est quoi? the navbar? le navigator est le bateau qui nous permet de naviguer sur le web . The
+        navigator object is a property of the window object.
+        Chaque browser ou navigateur possède son propre système de navigation , si j'ose dire, qui lui est propre.
+        On peut acceder a cet objet par la variable window.navigator. Et on utiliser cette propriété pour savoir si le
+        navigateur a activé les cookies ou non.
+
+    </p>
+    <p id="codeName"></p>
+    <p id="Name"></p>
+    <p id="version"></p>
+    <p id="platform"></p>
+    <p id="cookiesEnabled"></p>
+    <p id="language"></p>
+    <p id="onLine"></p>
+    <p id="product"></p>
+    <p id="geolocation"></p>
+    <script>
+        document.getElementById('codeName').innerText = "Le code name du navigateur est : " + navigator.appCodeName;
+        document.getElementById('Name').innerText = "Le nom du navigateur est : " + navigator.appName;
+        document.getElementById('version').innerText = "La version du navigateur est : " + navigator.appVersion;
+        document.getElementById('platform').innerText = "La platform du navigateur est : " + navigator.platform;
+        document.getElementById('cookiesEnabled').innerText = " Est ce que le navigateur a activé les cookies ?? " + navigator.cookieEnabled;
+        document.getElementById('language').innerText = "La langue du navigateur est : " + navigator.language;
+        document.getElementById('onLine').innerText = "Est ce que le navigateur est online  ?? " + navigator.onLine;
+        document.getElementById('product').innerText = "Le nom du product du navigateur est : " + navigator.product;
+        document.getElementById('geolocation').innerText = " la  géolocalisation du navigateur est : " + navigator.geolocation.getCurrentPosition(function (position) {
+            document.getElementById('geolocation').innerText = " la  géolocalisation du navigateur est : " + position.coords.latitude + " " + position.coords.longitude;
+        });
+    </script>
+</body>
+
+</html>

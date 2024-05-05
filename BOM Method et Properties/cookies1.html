@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM Object: Cookies</title>
+</head>
+
+<body>
+    <h1>BOM Object: Cookies</h1>
+    <p>Les Cookies? a quoi ça peut bien servir?</p>
+    <p>Les cookies sont des petites donnée stocké dans le navigateur, qui sont stocké dans un fichier texte, qui est
+        stocké
+        dans le dossier du navigateur.</p>
+    <p>Elle aident le navigateur de bien <strong>se rappeler du visiteur </strong> , tout banalement !</p>
+    <p>Lorsqu'on visite une page web , le navigateur enregistre nos preferences dans des cookies, et la prochaines
+        visite a cette page, le navigateur nous présente nos anciens choix, et c'st grace aux cookies. </p>
+    <p>Les cookies ont une date d’expiration .....! </p>
+    <p>Les cookies sont des petites donnée stocké dans le navigateur, qui sont stocké dans un fichier texte, qui est
+        stocké dans le dossier du navigateur.</p>
+    <h1>Javascript et les cookies</h1>
+    <p>Avec javascript on peut insérer des cookies , les lire modifier et supprimer ;</p>
+    <p>Pour lire le nom des cookies inscrites dans cet appareil : document.cookie ; the output is very long string </p>
+    <br><br>
+    <code>document.cookie = "myBestSon = Islam; expires= 'Sun May 05 2024 20:56:52 GMT+0100 (UTC+01:00)';path=/";//
+        creation d'une
+        cookie avec name date d'expiration et path dans tout le domaine .</code>
+    <p id="cookies"></p>
+
+    <script>
+        // document.getElementById('cookies').innerText = document.cookie;
+        // the output is a very long string of letters and numbers 
+        // cookie syntax:
+        // document.cookie("name=value; expires=date; path= ");
+        // name=value peut être color=red, ou age = 33
+        //expires= date peut être 2033.09.23 string , et si je ne donne pas cette date , elle va disparaître apres fermeture du window.
+        // path = chemin ; si path = vide,les preparation de la cookie va se réaliser uniquement dans cette page, et si je precise le domaine ou le path , il va appliquer la cookie a tout le domaine (path=/ ).
+        // Moi je vais ajouter uniquement le name=value :
+        document.cookie = 'couleurFavorable= purple';
+        document.cookie = "myBestSon = Islam; expires= 'Sun May 05 2024 20:56:52 GMT+0100 (UTC+01:00)';path=/";// creation d'une cookie avec name date d'expiration et path dans tout le domaine .
+        document.getElementById('cookies').innerText = document.cookie;
+        console.log(document.cookie);
+
+
+
+    </script>
+</body>
+
+</html>

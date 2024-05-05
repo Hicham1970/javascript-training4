@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window property : screen</title>
+</head>
+
+<body>
+    <h1>The Screen </h1>
+    <p>Avec cette propriété screen on peut nous donner une idée sur l'écran, sa dimension: la hauteur intern/extern ou
+        la largeur intern/extern, les couleur et leurs profondeur. </p>
+    <p id="width"></p>
+    <p id="height"></p>
+    <p id="availableWidth"></p>
+    <p id="availableHeight"></p>
+    <p id="colorDepth"></p>
+    <p id="pixelDepth"></p>
+    <script>
+        document.getElementById('width').innerText = " la largeur de l’écran est :" + screen.width + " px";
+        document.getElementById('height').innerText = " la hauteur de l’écran est :" + screen.height + " px";
+        document.getElementById('availableWidth').innerText = " la largeur disponible de l’écran est :" + screen.availWidth + " px";
+        document.getElementById('availableHeight').innerText = " la hauteur disponible de l’écran est :" + screen.availHeight + " px";
+        document.getElementById('colorDepth').innerText = " la profondeur des couleurs de  l’écran est :" + screen.colorDepth + " bit";
+        document.getElementById('pixelDepth').innerText = " la profondeur des pixels de  l’écran est :" + screen.pixelDepth + " bit";
+
+    </script>
+
+</body>
+
+</html>
