@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local storage Object Example</title>
+    <style>
+        body {
+            background-color: #eee;
+        }
+
+        ul {
+            background-color: #ddd;
+            margin: 20px auto;
+            padding: 20px;
+            width: 400px;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        ul li {
+            width: 60px;
+            height: 60px;
+            border: 2px solid transparent;
+            border-radius: 40%;
+            opacity: 0.4;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        ul li.active,
+        ul li:hover {
+            opacity: 1;
+            border-color: currentColor;
+        }
+
+        ul li:first-child {
+            background-color: #F00;
+        }
+
+        ul li:nth-child(2) {
+            background-color: green;
+        }
+
+        ul li:nth-child(3) {
+            background-color: blue;
+
+        }
+
+        ul li:nth-child(4) {
+            background-color: black;
+        }
+
+        .experiment {
+            background-color: red;
+            width: 600px;
+            height: 300px;
+            margin: 20px auto;
+        }
+
+        p {
+            color: #0e20e2;
+            text-align: center;
+        }
+
+        p::first-letter {
+            font-size: 44px;
+            color: orange;
+        }
+
+        .experiment {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Local Storage </h1>
+    <p> But de la leçon :
+        * This HTML file demonstrates the use of the Web Storage API to store and retrieve color information.
+        * The file contains a list of color elements, where the first one is marked as active and has a red color.
+        * The selected color is stored in the browser's local storage, and the corresponding color is displayed in a
+        container
+        div.
+    </p>
+    <ul>
+        <li class="active" data-color="red"></li>
+        <li data-color="green"></li>
+        <li data-color="blue"></li>
+        <li data-color="black"></li>
+    </ul>
+    <div class="experiment"></div>
+    <script>
+        // select tous les lis:
+        let lis = document.querySelectorAll('ul li');
+        let myDiv = document.querySelector('.experiment');
+        // localStorage.clear();
+        // S'assurer que notre selected color exit d'abord:
+        let selectedColor = localStorage.getItem('selectedColor');
+        if (selectedColor) { // Si selectedcolor exit ds le localStorage
+            // 1. ajouter cette couleur a la div:
+            myDiv.style.backgroundColor = selectedColor;
+            // 2. Retire la classe active de ts les lis: 
+            lis.forEach(li => li.classList.remove('active'));
+            //3. ajouter la classe active au li cliqué ou current color:
+            document.querySelector(`[data-color = 
+            "${localStorage.getItem('selectedColor')}"]`).classList.add('active');
+
+
+        } else { // si pas de selectedColor
+            console.log("Il n'y a pas de couleur sélectionnée dans le local storage ! ");
+        }
+        // ajouter un événement click sur chaque li:
+        lis.forEach((li) => {
+            li.addEventListener('click', (event) => {
+                // console.log(event.currentTarget.dataset.color);
+                // supprimer la classe active de ts les lis:
+                lis.forEach(li => li.classList.remove('active'));
+                // ajouter la classe active au li cliqué:
+                event.currentTarget.classList.add('active');
+                // ajouter la couleur courante au localStorage:
+                localStorage.setItem('selectedColor', event.currentTarget.dataset.color);
+                // ajouter la couleur choisie a la div :
+                myDiv.style.backgroundColor = event.currentTarget.dataset.color;
+
+            })
+        });
+    </script>
+</body>
+
+</body>
+
+</body>
+
+</html>

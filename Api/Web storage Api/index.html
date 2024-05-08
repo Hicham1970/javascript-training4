@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage Api</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <p id="sessionStorage"></p>
+    <p>The localStorage object provides access to a local storage for a particular Web Site. It allows you to store,
+        read, add,
+        modify, and delete data items for that domain.
+
+        The data is stored with no expiration date, and will not be deleted when the browser is closed.
+
+        The data will be available for days, weeks, and years.</p>
+    <p>The localStorage Object has 2 methods : the setItem() to store a data into a storage, and the getItem() method
+        used to retrieve a data items from the storage.</p>
+    <p>The sessionStorage : The sessionStorage object is identical to the localStorage object.
+        The difference is that the sessionStorage object stores data for one session.
+        The data is deleted when the browser is closed.</p>
+    <h4>Storage Object Properties and Methods</h4>
+    <p>Les methods et propriétés principales du local storage son .key(), .length, .getItem(keyName),
+        setItem(keyName, value), .removeItem(keyName), clear() to remove all the storage items. </p>
+    <p id="key"></p>
+    <p id="length"></p>
+
+    <script>
+        localStorage.setItem("name", "John Malcolm X");
+        document.getElementById("demo").innerHTML = "The local storage is : " + localStorage.getItem("name");
+        // créer une session storage et l'afficher:
+        sessionStorage.setItem("name", "Amiral Bird");
+        sessionStorage.setItem("age", "45");
+        sessionStorage.setItem("Découverte", "Hallow Earth");
+        document.getElementById('sessionStorage').innerHTML = "  The découverte in the session storage is : " + sessionStorage.getItem('Découverte');
+        document.getElementById('key').innerHTML = "  l'item correspondant à la clés est : " + sessionStorage.key(2);
+        document.getElementById('length').innerHTML = "la longueur de la session storage est : " + sessionStorage.length;;
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Validation Forms</title>
+</head>
+
+<body>
+    <form>
+        <label for="mail">
+            I would like you to provide me with an email address:
+        </label>
+        <input type="email" id="mail" name="mail" />
+        <button type="button">Submit</button>
+    </form>
+    <p>Here we store a reference to the email input, then add an event listener to it that runs the contained code each
+        time
+        the value inside the input is changed.
+
+        Inside the contained code, we check whether the email input's validity.typeMismatch property returns true,
+        meaning that
+        the contained value doesn't match the pattern for a well-formed email address. If so, we call the
+        setCustomValidity()
+        method with a custom message. This renders the input invalid, so that when you try to submit the form,
+        submission fails
+        and the custom error message is displayed.
+        If the validity.typeMismatch property returns false, we call the setCustomValidity() method with an empty
+        string. This
+        renders the input valid, so the form will submit.</p>
+    <script>
+        const email = document.getElementById("mail");
+
+        email.addEventListener("input", (event) => {
+            if (email.validity.typeMismatch) {
+                let message = email.setCustomValidity("I am expecting an email address!");
+                console.log(message);
+            } else {
+                email.setCustomValidity("");
+            }
+        });
+    </script>
+</body>
+
+</html>

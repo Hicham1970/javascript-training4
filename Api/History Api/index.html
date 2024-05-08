@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Api </title>
+</head>
+
+<body>
+    <h1>Web History Api</h1>
+    <p>The Web History API provides easy methods to access the windows.history object.
+        The window.history object contains the URLs (Web Sites) visited by the user.</p>
+    <p>The back() method loads the previous URL in the windows.history list.</p>
+    <button type="button" onclick="myFunction()">Go Back</button>
+    <button type="button" onclick="goBack()">Go Back 2 pages earlier</button>
+
+    <script>
+        function myFunction() {
+            window.history.back();
+        };
+        function goBack() {
+            window.history.go(-2); // go 2 steps afterword
+        }
+    </script>
+</body>
+
+</html>
