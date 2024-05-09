@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application pour le local storage</title>
+</head>
+
+<body>
+    <h1>The localStorage Window Object</h1>
+    <p>Dans cet objet on veut stocker nos données pour les récupérés quand on le veut, par exemple un choix de couleurs
+        qu'on veut utiliser ultérieurement</p>
+    <p>On peut ajouter un local storage avec la method window.localStorage.setItem("key","value")
+
+    </p>
+    <h2>SetItems() </h2>
+    <p>Une autre manière de faire ça : window.localStorage.KeyName = "Value" , directement . Il y a une autre façon :
+        window.localStorage["font"] = "Helvetica" ; par exemple.</p>
+    <p>Dans le monde réel , si un utilisateur choisit une couleur ou un type de font, son choix est enregistré dans le
+        local storage , et si on fait un rafraîchi de la page ou un redémarrage de la page, le browser va afficher les
+        couleurs choisit et les traits de font de l'utilisateur </p>
+    <h2>GetItems() </h2>
+    <P>Maintenant qu'on a créer notre localStorage, Comment l'utiliser??
+        Avec cette sentence :window.localStorage.getItem('keyName') ou encore window.localStorage.keyName, et on peut
+        même écrire window.localStorage["keyName"];
+    </P>
+    <p> Et pour utiliser cette data dans notre page web la couleur du body sera celle créer dans le local storage cad la
+        couleur rouge #F00</p>
+    <h2>RemoveItem()</h2>
+    <p>On a ajouter une data avec setItem("keyName", "Value");puis on appelé cette donnée avec la method
+        getItem("keyName').</p>
+    <p>Il y'a la méthode LocalStorage.key(0) qui nous affiche le premier item de la data </p>
+    <p>On supprime une donnée du localStorage avec la sentence : window.localStorage.remove('keyName').</p>
+    <script>
+        // SetItems()
+        window.localStorage.setItem('color', '#F00');
+        console.log(window.localStorage);
+        console.log(typeof window.localStorage);
+        // ajouter une autre couleur:
+        window.localStorage.darkColor = "#333";
+        window.localStorage.fontWeight = "bold";
+        window.localStorage.fontSize = "20px";
+        window.localStorage["font"] = "Helvetica";
+
+        console.log(window.localStorage);
+        // GetItems():
+        console.log(window.localStorage.getItem('color'));
+        console.log(window.localStorage.name);
+        console.log(window.localStorage["fontSize"]);
+
+        // Set Color in the web page:
+        document.body.style.backgroundColor = window.localStorage.getItem('color');
+
+        // Remove One Item:
+        window.localStorage.removeItem('darColor');
+        window.localStorage.removeItem('darcColor');
+        window.localStorage.removeItem('darckyColor');
+        window.localStorage.removeItem('clearColor');
+        window.localStorage.removeItem('darkColor');
+        console.log(localStorage);
+
+        // the key() method:
+        localStorage.key(1);
+        console.log('Le Deuxième item du local Storage est : ' + localStorage.key(1));
+
+
+
+        // Remove all Items:
+        // localStorage.clear();
+        console.log(localStorage);
+
+
+
+    </script>
+
+</body>
+
+</html>

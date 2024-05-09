@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage</title>
+</head>
+
+<body>
+    <h1>Session Storage Object</h1>
+    <p>La session storage est identique au local storage sauf que ce dernier reste dans la machine si on ferme la
+        session et la session storage est effacé apres fermeture de la page. </p>
+    <p>Il est preferable de travailler avec la session storage si on veut preserver la confidentialité des données de
+        l'utilisateur</p>
+    <p>Pour ajouter des données dans la session storage, on utilise la méthode setItem() </p>
+    <p>Pour récupérer des données de la session storage, on utilise la méthode getItem() </p>
+    <p>Supposons que nous avons un input ou l'utilisateur va entrer son nom</p><br><br>
+    <input type="name" name="name" id="name"><br><br>
+    <p>A chaque fois que l'utilisateur entre un nom, il sera enregistré dans la session storage. </p>
+    <script>
+        const name = document.getElementById('name');
+        name.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                sessionStorage.setItem('newUser', name.value);
+                console.log("Le nouveau utilisateur est : " + name.value);
+
+
+            }
+        });
+        const nameFromSessionStorage = sessionStorage.getItem('newUser');
+        console.log(nameFromSessionStorage);
+    </script>
+</body>
+
+</html>

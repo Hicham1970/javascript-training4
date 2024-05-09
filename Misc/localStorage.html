@@ -4,10 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local storage Object Example</title>
+    <title>Local storage Object Example 2</title>
     <style>
         body {
-            background-color: #eee;
+            background-color: #333;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+
+        }
+
+        h1 {
+            align-items: center;
+            justify-content: center;
+            display: flex;
         }
 
         ul {
@@ -62,17 +71,15 @@
         }
 
         p {
-            color: #0e20e2;
+            color: white;
             text-align: center;
+
+
         }
 
         p::first-letter {
             font-size: 44px;
-            color: orange;
-        }
-
-        .experiment {
-            background-color: red;
+            color: rgb(69, 199, 84);
         }
     </style>
 </head>
@@ -91,44 +98,53 @@
     <p>Cette couleur sera emmagasiner dans le local storage , et apres chaque redémarrage de la page on aura notre
         couleur au préalable choisit.</p>
     <ul>
-        <li class="active" data-color="red"></li>
-        <li data-color="green"></li>
-        <li data-color="blue"></li>
-        <li data-color="black"></li>
+        <li class="active" data-color="red" data-font="Verdana"></li>
+        <li data-color="green" data-font="Impact"></li>
+        <li data-color="blue" data-font="Segoe UI"></li>
+        <li data-color="black" data-font="Lucida Sans"></li>
     </ul>
-    <div class="experiment"></div>
     <script>
         // select tous les lis:
+        const body = document.querySelector('body');
         let lis = document.querySelectorAll('ul li');
-        let myDiv = document.querySelector('.experiment');
-        // localStorage.clear();
-        // S'assurer que notre selected color exit d'abord:
-        let selectedColor = localStorage.getItem('selectedColor');
-        if (selectedColor) { // Si selectedcolor exit ds le localStorage
-            // 1. ajouter cette couleur a la div:
-            myDiv.style.backgroundColor = selectedColor;
-            // 2. Retire la classe active de ts les lis: 
+        let myUl = document.querySelector('ul');
+        // S'assurer que les données sont existantes dans le localStorage :
+        let userColor = localStorage.getItem('userColor');
+        let userFont = localStorage.getItem('userFont');
+        if (userColor & userFont) {
+            // si ces 2 données existent=> ajouter la couleur et le ff actuel au body:
+            body.style.backgroundColor = userColor;
+            body.style.fontFamily = userFont;
+            //  Retire la classe active de ts les lis: 
             lis.forEach(li => li.classList.remove('active'));
-            //3. ajouter la classe active au li cliqué ou current color:
+            // ajouter la classe active au li cliqué ou current color:
             document.querySelector(`[data-color = 
-            "${localStorage.getItem('selectedColor')}"]`).classList.add('active');
+            "${localStorage.getItem('userColor')}"]`).classList.add('active');
+            document.querySelector(`[data-font = 
+            "${localStorage.getItem('userFont')}"]`).classList.add('active');
 
-
-        } else { // si pas de selectedColor
-            console.log("Il n'y a pas de couleur sélectionnée dans le local storage ! ");
+        } else {
+            // Si les données sont inexistantes dans le local storage:
+            console.log("Désolé mais aucune donnée n'est trouvée dans le local storage ");
         }
+
+
+
         // ajouter un événement click sur chaque li:
         lis.forEach((li) => {
             li.addEventListener('click', (event) => {
-                // console.log(event.currentTarget.dataset.color);
+                console.log(event.currentTarget.dataset.color);
+                console.log(event.currentTarget.dataset.font);
                 // supprimer la classe active de ts les lis:
                 lis.forEach(li => li.classList.remove('active'));
                 // ajouter la classe active au li cliqué:
                 event.currentTarget.classList.add('active');
-                // ajouter la couleur courante au localStorage:
-                localStorage.setItem('selectedColor', event.currentTarget.dataset.color);
-                // ajouter la couleur choisie a la div :
-                myDiv.style.backgroundColor = event.currentTarget.dataset.color;
+                // ajouter la couleur et le font courante au localStorage:
+                localStorage.setItem('userColor', event.currentTarget.dataset.color);
+                localStorage.setItem('userFont', event.currentTarget.dataset.font);
+                // ajouter la couleur  et le font choisies au body :
+                body.style.backgroundColor = event.currentTarget.dataset.color;
+                body.style.font = event.currentTarget.dataset.font;
 
             })
         });

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Store an Object</title>
+</head>
+
+<body>
+    <h1>Storing a Javascript Object</h1>
+    <p>Il faut savoir que toutes les données enregistres dans local storage sont dans une forme de string, </p>
+    <p>Si on veut emmagasiner un objet javascript dans le local storage, on doit le convertir en string , cette
+        opération s’appelle la sérialisation </p>
+    <p>On l'ajoute apres l'avoir convertit en string par la method stringify de Json.</p>
+    <p>On peut le récupérer avec la method parse de Json.</p>
+    <p>Voici un exemple de code : </p>
+
+    <button onclick="addObject()">Add object in localStorage</button><br />
+    <div id="objectDiv"></div>
+
+    <script type="text/Javascript">
+        function addObject(){
+            let myVessel={
+            name:"Mv Blue Virgos",
+            length:120,
+            width:20,
+            Lbp:10,
+            Imo:9744321
+        }
+
+        // comment ajouter cet objet au localStorage?
+        // Cet objet n'est pas un string, on va le stringify avec Json
+        localStorage.setItem("myVessel",JSON.stringify(myVessel));
+        console.log(localStorage);
+        // Et pour l'appeler du localStorage:
+        let vesselFromLocal = JSON.parse(localStorage.getItem("myVessel"));
+        console.log(vesselFromLocal.name);
+        console.log(vesselFromLocal.Imo);
+
+
+         }
+        
+
+         
+
+    </script>
+
+</body>
+
+</html>
