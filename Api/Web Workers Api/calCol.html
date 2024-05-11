@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web workers</title>
+</head>
+
+<body>
+    <h1>Web Workers handy example</h1>
+    <p>Ici on a un exemple ou le web worker est vraiment nécessaire . On a 2 boutons, chaque bouton contrôle le
+        déclenchement d'une fonction au sein du document.</p>
+    <p>La première fonction donne la somme de 1 jusqu'a 10 Milliards et la deuxième change la couleur du body en vert.
+    </p>
+    <p>Imaginer maintenant que je click sur le sumButton, et juste apres je click sur le bgButton</p>
+    <p>Vous vous dites que les 2 fonctions vont se déroulées simultanément car chaque bouton contrôle une fonction
+        apart, mais non, la 2 ème fonction ne change pas la couleur du body jusqu'a ce que l'alert soit afficher et tu
+        click sur le ok. Pourquoi? </p>
+    <p>C'est parce que Javascript traite le document ligne par ligne et une fonction a la fois. le file principal
+        d'execution est occupé dans la loop alors la deuxième
+        fonction doit attendre la fin de la première pour s'exécuter, et on peut rien faire sur l’écran tant que la loop
+        fonctionne toujours Et c'est là ou le web worker entre dans le jeu ;).
+    </p>
+    <p>On crée alors un web worker pour soulager cette loop qui demande beaucoup d'énergie , au meme temps on établit
+        une relation entre le fil d’exécution principal avec le fil d'execution secondaire. Comme ça?</p>
+    <p>1/ Dans le fichier javascript principal on crée une nouvelle instance worker </p>
+    <pre>const worker = new worker('web_worker.js') et on comme paramètre le web_worker.js notre web worker script
+    </pre>
+    <p>Question: Comment faire passer des données entre les Deux scripts? </p>
+    <p>Alors comment faire une relation ou créer un pont entre les deux scripts? avec la post message Api; elle suscite
+        un event dans un script et un autre script écoute a cet event. </p>
+    <p>2/ Dans web_worker.js on pose un écouteur d'événement pour une nouvelle post messages , cad quand il reçoit un
+        messages de la part du script principal</p>
+    <pre>self.onmessage = function(message){
+        // self is the web_worker, on peut l'enlever
+        console.log(message)
+        }</pre>
+    <p>On lui demande d'afficher le message si il recoit un message du new_worker </p>
+    <p> 3/ Dans le fichier javascript principal , ou on a crée le new worker, on va commenter la fonction sum, et on va
+        affecter le le click sur le bouton sum a un envoie de message avec la méthode new_worker.postMessage () </p>
+    <pre>sumButton.addEventListener("click", (event) => {
+        new_worker.postMessage("Hello i am the new_worker instance !") ; });</pre>
+    <p>Comme ca , si on click sur le sumButton on va envoyer un message au web_worker ; qui est en écoute, on va
+        afficher le message envoyer. </p><br><br>
+    <p>Maintenant que nous avons établit une bonne connection entre les deux scripts, on peut transferer notre code
+        encombrant, cad celui qui compte de 1 à 10 Milliards , vers le web_worker.js </p>
+    <p>Le web worker avec sa fil d’exécution secondaire va s'occuper de cette loop en arrière de la fil d’exécution
+        principale qui peut maintenant changer la couleur du bg avec aisance </p>
+    <br><br>
+    <p>On a ici un souci : c'est que si on veut afficher le résultat de la sum dans notre script principal , celui ç ne
+        connaît pas les variables provenant du web worker car il ne s'attend pas , encore, a recevoir un message de
+        celui-çi. Alors quoi faire?</p>
+    <p>On va construire un écouteur d'événement dans le new_worker
+    <pre>new_worker.onmessage=function(){
+        console.log(message); }</pre> et au même moment on va poster un message avec le
+    résultat du web_worker vers le new_worker
+    <pre>
+        self.onmessage = function (message) {
+        let sum = 0;
+        for (let i = 0; i < 10000000000; i++) sum +=i;<br> self.postMessage(`La somme de 1 jusqu' a 10 Milliards est
+            :${sum}`)}</pre>
+    </p><br><br>
+    <p>Maintenant si on click sur le sumButton la loop se déroule en arrière plan, et on peut changer le bg facilement ,
+        et apres quelques secondes le résultat provenant du web worker est envoyé au main thread pour l'affichage</p>
+
+
+    <button id="sum" title="sum">Make Sum</button>
+    <button id="bgButton" title="sum">Change Color</button>
+    <script src="calCol.js" type="text/javascript"></script>
+
+</body>
+
+</html>

@@ -45,6 +45,7 @@ const addStudentElement = ({ name, age, roll }) => {
 
 myStudentContainer.style.display = students.length === 0 ? "none" : "flex";
 
+// pour chaque student ajouter on va créer activer la fonction addStudentElement:
 students.forEach(addStudentElement);
 
 // On va ajouter un event lors du submit event:
