@@ -1,0 +1,11 @@
+Champ|Nom|Type|Format|Attribut|Obligatoire|Size 970
+0|Clé|String|Len|13|OUI|80
+1|Nom|String|Ucase||OUI|90
+2|Prenom|String|Proper||OUI|60
+3|DateNaissance|Date|Format|dd/mm/yyyy|OUI|80
+4|Adresse|String|Proper||OUI|170
+5|Ville|String|Ucase||OUI|80
+6|CodePostal|Numeric|Format|00000|OUI|60
+7|Mail|String|Lcase||OUI|180
+8|Tel|String|Format|Tel|OUI|90
+9|Geoloc|String|N/A||NON|80

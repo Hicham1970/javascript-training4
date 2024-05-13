@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afficher un fichier excel</title>
+    <script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
+    <style>
+        table,
+        td,
+        th {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 15px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+</head>
+
+<body>
+    <input type="file" id="fileInput" title="input" />
+    <table id="tbl-data"></table>
+    <script>
+
+
+
+        const input = document.getElementById('fileInput');
+        input.addEventListener('change', function () {
+            readXlsxFile(input.files[0]).then(function (data) {
+                readXlsxFile(input.files[0]).then(function (data) {
+                    console.log(data);
+                    let i = 0;
+                    data.map((row, index) => {
+                        if (i === 0) {
+                            let table = document.getElementById('tbl-data');
+                            generateTableHead(table, row);
+                        }
+                        if (i > 0) {
+                            let table = document.getElementById('tbl-data')
+                            generateTableRows(table, row);
+                        }
+                        i++;
+                    })
+
+                });
+            });
+        });
+
+        function generateTableHead(table, data) {
+            let thead = table.createTHead();
+            let row = thead.insertRow();
+            for (let key of data) {
+                let th = document.createElement('th');
+                let text = document.createTextNode(key);
+                th.appendChild(text);
+                row.appendChild(th);
+            }
+        }
+
+        function generateTableRows(table, data) {
+            let tBody = table.createTBody();
+            let newRow = table.insertRow(-1);
+            data.map((row, index) => {
+                let newCell = newRow.insertCell();
+                let newText = document.createTextNode(row);
+                newCell.appendChild(newText);
+            })
+        }
+    </script>
+
+</body>
+
+</html>
+
+</html>
