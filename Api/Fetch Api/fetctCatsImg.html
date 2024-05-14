@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Essai de fetch some cats</title>
+</head>
+
+<body>
+    <!--
+* Fetches a random cat image from the Cat API and displays it on the page.
+* If there is an error fetching the image, an error message is displayed instead.
+-->
+
+    <h1>Essai de fetch some cats</h1>
+    <h1 id="erreur"></h1>
+    <img src="" id="img" alt="Contacts_Setting" />
+    <script>
+        const image = document.getElementById('img');
+        const cat_url = 'https://api.thecatapi.com/v1/images/search';
+        fetch(cat_url)
+            .then(res => {
+                console.log(res);
+                if (res.ok) {
+                    res.json().then(data => image.src = data[0].url)
+                } else {
+                    console.log('Error');
+                    document.getElementById('erreur').innerHTML = 'ERROR, Vérifie ton Url  body ;( ....';
+                }
+            });
+    </script>
+</body>
+
+</html>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Api Interface</title>
+</head>
+
+<body>
+    <h1>Javascript Fetch Api Interface</h1>
+    <p>Since Fetch is based on async and await, the example above might be easier to understand like this:</p>
+    <pre>
+        <code>
+            ⚠️let file = 'Contacts_Setting.txt';
+            fetch(file)
+            .then(x => x.text())
+            .then(y => (document.getElementById('fetched-txt').innerHTML = y));
+
+            // Ce code devient
+
+            ⚠️getText("Contacts_Setting.txt");
+            async function getText(file) {
+            let x = await fetch(file);
+            let y = await x.text();
+            document.getElementById("demo").innerHTML = y;
+            }
+        </code>
+    </pre>
+    <h5>Le contenu du fichier Contacts_Setting.txt sera affiché en dessous:🔻🔻🔻🔻🔻</h5>
+    <p id="demo">Fetch a file to change this text.</p>
+
+    <script>
+        /**
+         * * Récupère de manière asynchrone le contenu d'un fichier texte et l'affiche dans un élément HTML.
+         *  * * @param {string} file - Le chemin vers le fichier texte à récupérer.
+         *  * @returns {Promise} - Une Promesse qui se résout lorsque le contenu du fichier a été affiché*/
+
+        getText("Contacts_Setting.txt");
+
+        async function getText(file) {
+            let myObject = await fetch(file);
+            let myText = await myObject.text();
+            document.getElementById("demo").innerHTML = myText;
+        }
+    </script>
+
+
+</body>
+
+</html>
