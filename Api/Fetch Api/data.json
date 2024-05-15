@@ -1,0 +1,17 @@
+{
+  "nom": "Dupont",
+  "prénom": "Jean",
+  "age": 35,
+  "adresse": {
+    "rue": "10 rue de la Paix",
+    "ville": "Paris",
+    "codePostal": "75000"
+  },
+  "emploi": "Développeur Web",
+  "hobbies": ["Lecture", "Cinéma", "Randonnée"],
+  "Spécialité": {
+    "music": ["guitare", "violon", "piano"],
+    "sport": ["tennis", "carting", "bolling"],
+    "etudes": ["Biology", "Math", "Philosophy"]
+  }
+}

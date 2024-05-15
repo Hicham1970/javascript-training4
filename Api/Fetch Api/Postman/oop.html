@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP in Javascript</title>
+</head>
+
+<body>
+    <h2>OOP In Javascript</h2>
+    <p>Le concept de l’op en javascript n'est pas tres répondu comme dans le vba ou le java.</p>
+    <p>Mais le but est le même : faire un model pour fabrication ultérieur d’objets </p>
+    <script>
+        // class Animal:
+        class Animals {
+            constructor(name, age, weight) {
+                this.name = name;
+                this.age = age;
+                this.weight = weight;
+            }
+            speak() {
+                console.log(`${this.name} says woof`);
+            }
+            eat() {
+                console.log(`${this.name} is eating meal`);
+            }
+        }
+
+        // utilisation de la classe:
+
+        let Lion = new Animals("Assad", 13, 11);
+        console.log(Lion.speak());
+        console.log(Lion.eat());
+        let Tiger = new Animals("Tiger", 11, 14);
+        console.log(Tiger.speak());
+        console.log(Tiger.age);
+        console.log(Tiger.weight);
+
+
+    </script>
+
+</body>
+
+</html>

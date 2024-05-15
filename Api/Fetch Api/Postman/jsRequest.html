@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Request </title>
+</head>
+
+<body>
+    <h2>Javascript Request</h2>
+    <p id="Content">
+
+    </p>
+    <script>
+        var xhr = new XMLHttpRequest(); // creation d'un objet de la classe xmlhttprequest()
+        xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+        xhr.responseType = "json";
+        xhr.send();
+        xhr.onload = function () {
+            let posts = xhr.response;
+            for (post of posts) {
+                document.getElementById("Content").innerHTML += `<h1>${post.title}</h1>`;
+                // console.log(post.title);
+
+            }
+        }
+    </script>
+
+</body>
+
+
+</html>
