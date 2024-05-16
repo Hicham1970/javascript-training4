@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requests types : GET, POST, PUT? PATCH & DELETE</title>
+
+</head>
+
+<body>
+    <H1>Other types of Request</H1>
+    <p>La difference entre lee 2 types de Request : PUT & PATCH </p>
+    <p>PUT : permet de changer tout un post avec tous ces composants key/value </p>
+    <p>PATCH : permet de modifier un seul ou quelques composants key/value</p>
+    <div id="content"></div>
+    <script>
+        // fonction getPost:
+        function getPosts() {
+            let xhr = new XMLHttpRequest(); // creation d'un objet de la classe xmlhttprequest()
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+            xhr.responseType = "json";
+            xhr.send();
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    let posts = xhr.response;
+                    for (post of posts) {
+                        document.getElementById("content").innerHTML += `<h2>${post.title}</h2>`;
+                        console.log(post.title);
+
+                    }
+                } else {
+                    alert("error");
+                }
+
+            }
+
+        }
+
+        // Fonction Post Request en javascript:
+        function postRequest() {
+            let Request = new XMLHttpRequest();
+            Request.open('POST', 'https://jsonplaceholder.typicode.com/posts');
+            Request.responseType = "json";
+            Request.setRequestHeader('Accept', 'application/json');
+            Request.setRequestHeader('Content-Type', 'application/json');
+            Request.send(JSON.stringify({
+                title: 'New Post',
+                body: 'This is a new post',
+                userId: 1
+            }));
+            Request.onload = function () {
+                if (Request.status >= 200 && Request.status < 300) {
+                    console.log(Request.response);
+                    console.log(Request.status);
+                    alert('The post has been created successfully')
+
+                } else {
+                    alert("error");
+                    console.log(Request.status);
+                }
+
+            }
+        };
+        // fonction UpdatePost:
+
+        function updatePost() {
+            let Request = new XMLHttpRequest();
+            Request.open('PUT', 'https://jsonplaceholder.typicode.com/posts/17');
+            Request.responseType = "json";
+            Request.setRequestHeader('Accept', 'application/json');
+            Request.setRequestHeader('Content-Type', 'application/json');
+            // Stringify notre objet Json:
+            let bodyParams = `{
+                "title": "New Post",
+                "body": "This is a new post modified by HG",
+                "userId": 109
+            }`;
+            Request.send(bodyParams);
+            Request.onload = function () {
+                if (Request.status >= 200 && Request.status < 300) {
+                    console.log(Request.response);
+                    console.log("The status code is : " + Request.status);
+                    alert('The post has been modified successfully by HG ')
+
+                } else {
+                    alert("error");
+                    console.log(Request.status);
+                }
+
+            };
+        }
+
+        // Fonction PatchPost:
+        function patchPost() {
+            let Request = new XMLHttpRequest();
+            Request.open('PATCH', 'https://jsonplaceholder.typicode.com/posts/17');
+            Request.responseType = "json";
+            Request.setRequestHeader('Accept', 'application/json');
+            Request.setRequestHeader('Content-Type', 'application/json');
+            // Stringify notre objet Json:
+            let bodyParams = `{
+                "title": "New Post",
+                "body": "If you are here, that means that , God loves you!"
+        } `;
+            Request.send(bodyParams);
+            Request.onload = function () {
+                if (Request.status >= 200 && Request.status < 300) {
+                    console.log(Request.response);
+                    console.log("The status code is : " + Request.status);
+                    alert('A small part of the post has been modified successfully by HG ')
+
+                } else {
+                    alert("error");
+                    console.log(Request.status);
+                }
+            };
+        }
+
+        // fonction DeletePost:
+
+        function deletePost() {
+            let Request = new XMLHttpRequest();
+            Request.open('DELETE', 'https://jsonplaceholder.typicode.com/posts/17');
+            Request.responseType = "json";
+            Request.setRequestHeader('Accept', 'application/json');
+            Request.setRequestHeader('Content-Type', 'application/json');
+            Request.send();
+            Request.onload = function () {
+                if (Request.status >= 200 && Request.status < 300) {
+                    console.log(Request.response);
+                    console.log("The status code is : " + Request.status);
+                    alert('The post has been deleted successfully by HG ')
+
+                } else {
+                    alert("error");
+                    console.log(Request.status);
+                }
+            };
+        };
+
+
+        // fonction filterPosts:
+        function filterPosts() {
+            let xhr = new XMLHttpRequest(); // creation d'un objet de la classe xmlhttprequest()
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts?userId=3');
+            xhr.responseType = "json";
+            xhr.send();
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    let posts = xhr.response;
+                    for (post of posts) {
+                        document.getElementById("content").innerHTML += `<h2>${post.title}</h2>`;
+                        console.log(post.title);
+
+                    }
+                } else {
+                    alert("error");
+                }
+
+            }
+        }
+
+
+        // fonction nested ressources:
+        function nestedComment() {
+            let xhr = new XMLHttpRequest(); // creation d'un objet de la classe xmlhttprequest()
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/9/comments');
+            xhr.responseType = "json";
+            xhr.send();
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    let posts = xhr.response;
+                    for (post of posts) {
+                        document.getElementById("content").innerHTML += `<h2>${post.body}</h2>`;
+                        console.log(post.body);
+
+                    }
+                } else {
+                    alert("error");
+                }
+
+            }
+        }
+
+
+        // nestedComment()
+
+
+
+
+
+        // filterPosts();
+        // getPosts();
+        // postRequest();
+        // updatePost();
+        // patchPost();
+        // deletePost();
+
+
+
+    </script>
+
+</body>
+
+</html>

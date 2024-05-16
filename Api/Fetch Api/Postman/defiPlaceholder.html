@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défit Placeholder</title>
+    <style>
+        body {
+            background: Linear-gradient(45deg, rgb(0, 0, 113), rgb(96, 0, 0));
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #container {
+            display: flex;
+        }
+
+        #orange {
+            width: 30%;
+        }
+
+        .userContainer {
+            width: 90%;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+        }
+
+        #user {
+            background-color: #fff;
+            border-radius: 100px;
+            padding: 10px;
+            padding-left: 10px;
+            font-size: 20px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 206, 0.2);
+            border-radius: 100px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        #user.selected {
+            border: 6px solid red;
+        }
+
+        #posts-container {
+            height: 1000px;
+            width: 70%;
+            background-color: rgb(236, 236, 236);
+        }
+
+        #posts {
+            width: 90%;
+            margin: 0px auto;
+        }
+
+        #post {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 206, 0.2);
+            padding: 10px;
+            padding-left: 10px;
+            font-size: 20px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Main Content-->
+    <div id="container">
+        <div id="orange">
+            <!--Users Container-->
+            <div class="userContainer">
+                <!--User-->
+                <div id="user">
+                    <h3>Hicham</h3>
+                    <h3>h.Garoum@gmail.com</h3>
+                </div>
+                <div id="user" class="selected">
+                    <h3>Hicham</h3>
+                    <h3>h.Garoum@gmail.com</h3>
+                </div>
+                <div id="user">
+                    <h3>Hicham</h3>
+                    <h3>h.Garoum@gmail.com</h3>
+                </div>
+                <div id="user">
+                    <h3>Hicham</h3>
+                    <h3>h.Garoum@gmail.com</h3>
+                </div>
+                <!--//User//-->
+
+            </div>
+            <!--// Users Container //-->
+        </div>
+        <!--Post container-->
+        <div id="posts-container">
+            <!--PostS-->
+            <div id="posts">
+                <!--Post-->
+                <div id="post">
+                    <h3>Post title</h3>
+                    <h4>C'est une chanson qui nous ressemble, moi qui t'aimais et toi qui m'aimais, et nous vivions de
+                        l'air
+                        du temps.</h4>
+                </div>
+                <!--//Post//-->
+                <div id="post">
+                    <h3>Post title</h3>
+                    <h4>C'est une chanson qui nous ressemble, moi qui t'aimais et toi qui m'aimais, et nous vivions de
+                        l'air
+                        du temps.</h4>
+                </div>
+                <div id="post">
+                    <h3>Post title</h3>
+                    <h4>C'est une chanson qui nous ressemble, moi qui t'aimais et toi qui m'aimais, et nous vivions de
+                        l'air
+                        du temps.</h4>
+                </div>
+                <div id="post">
+                    <h3>Post title</h3>
+                    <h4>C'est une chanson qui nous ressemble, moi qui t'aimais et toi qui m'aimais, et nous vivions de
+                        l'air
+                        du temps.</h4>
+                </div>
+
+
+            </div>
+            <!--//Posts//-->
+        </div>
+        <!--//Post container//-->
+    </div>
+    <!--//Main Content//-->
+
+
+
+
+    <!--// Main Content //-->
+    <script src="defit.js"></script>
+</body>
+
+</html>

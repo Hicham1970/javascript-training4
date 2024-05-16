@@ -9,7 +9,7 @@
 
 <body>
     <h2>Javascript Request</h2>
-    <p id="Content">
+    <p id="content">
 
     </p>
     <script>
@@ -20,7 +20,7 @@
         xhr.onload = function () {
             let posts = xhr.response;
             for (post of posts) {
-                document.getElementById("Content").innerHTML += `<h1>${post.title}</h1>`;
+                document.getElementById("content").innerHTML += `<h1>${post.title}</h1>`;
                 // console.log(post.title);
 
             }
