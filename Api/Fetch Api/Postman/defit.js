@@ -38,7 +38,7 @@ function getUsers() {
       let users = request.response;
       users.forEach(user => {
         const contenu = `
-        <div id="user" onclick="userClicked(${user.id})">
+        <div id="user" onclick="userClicked(${user.id},this)">
             <h3>${user.name}</h3>
             <h3>${user.email}</h3>
         </div>
@@ -54,6 +54,12 @@ function getUsers() {
 // getPosts(5);
 getUsers();
 
-function userClicked(id) {
+function userClicked(id, element) {
   getPosts(id);
+  // console.log(element);
+  let selectedElements = document.getElementsByClassName('selected');
+  for (let i = 0; i < selectedElements.length; i++) {
+    selectedElements[i].classList.remove('selected');
+  }
+  element.classList.add('selected');
 }

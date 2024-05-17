@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Promise</title>
+    <style>
+        body {
+            background-color: blueviolet;
+            color: aliceblue;
+        }
+
+        h3 {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Dive into the Promise</h1>
+    <h3 id="titre1">Text1</h3>
+    <h3 id="titre2">Text2</h3>
+    <h3 id="titre3">Text3</h3>
+    <h3 id="titre4">Text4</h3>
+    <script>
+        // fonction qui affiche les 4 titres simultanément:
+        document.onload = afficher();
+
+        function afficher() {
+            setTimeout(function () {
+                document.getElementById('titre1').style.visibility = "visible";
+                setTimeout(function () {
+                    document.getElementById('titre2').style.visibility = "visible";
+                    setTimeout(function () {
+                        document.getElementById('titre3').style.visibility = "visible";
+                        setTimeout(function () {
+                            document.getElementById('titre4').style.visibility = "visible";
+                        }, 1000)
+                    }, 1000)
+                }, 1000)
+            }, 1000)
+        }
+
+    </script>
+
+
+</body>
+
+</html>

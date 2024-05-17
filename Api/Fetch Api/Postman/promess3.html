@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Promesses</title>
+    <style>
+        body {
+            background-color: black;
+            color: wheat;
+        }
+
+        h3 {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Affichage des titres de manière asynchrone</h1>
+    <p>Je crois que le faite d'avoir une promise ou une new promise, nous donne l'accès a la fonction asynchrone then(),
+    </p><br><br>
+    <p>Et que la fonction then() nous permet se réalise quand on a appel a la call back resolve().</p><br><br>
+    <h3 id="tit1">Titre1</h3>
+    <h3 id="tit2">Titre2</h3>
+    <h3 id="tit3">Titre3</h3>
+    <h3 id="tit4">Titre4</h3>
+    <script>
+        // Create a Promise:
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                document.getElementById('tit1').style.visibility = "visible"
+                resolve()
+            }, 2000)
+        })
+            .then(() => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        document.getElementById('tit2').style.visibility = "visible"
+                        resolve()
+                    }, 2000)
+                })
+
+
+            }).then(() => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        document.getElementById('tit3').style.visibility = "visible"
+                        resolve()
+                    }, 2000)
+                })
+            }).then(() => {
+                setTimeout(() => {
+                    document.getElementById('tit4').style.visibility = "visible"
+
+                }, 2000)
+
+            })
+    </script>
+</body>
+
+</html>
+
+</html>

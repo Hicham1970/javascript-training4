@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise2</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        h3 {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <H1>Using the Promise Class and his methods</H1>
+    <p>Ce que je devrais retenir de la logique des Promesses en Javascript:
+    <h6>Toute objet qui représente une promesse permet d 'utiliser then apres</h6>
+    <h6>Le code qui se trouve dans le then sera executer apres l’appel de la resolve</h6>
+    <h6>Le code qui se trouve dans le catch sera executer apres l’appel de la reject</h6>
+    </p>
+    <h3 id="titre1">TitreN1</h3>
+    <h3 id="titre2">TitreN2</h3>
+    <h3 id="titre3">TitreN3</h3>
+    <h3 id="titre4">TitreN4</h3>
+    <script>
+        // creation de la promesse et de la fonction async
+        let p = new Promise((resolve, reject) => {
+            console.log('avant la creation de la promesse')
+            //async function;
+            setTimeout(function afficherTitres() {
+                document.getElementById('titre1').style.visibility = "visible"
+                console.log("Appel the reject()");
+                reject("Désolé votre requête a été rejetée");
+            }, 2000);
+
+            // isSuccess = true;
+            // if (isSuccess) {
+            //     console.log('Appel de resolve()')
+            //     resolve()
+            // } else {
+            //     console.log('Appel de reject()')
+            //     reject()
+            // };
+
+        });
+        // Ce qui va se passer selon le résultat de la promesse:
+        console.log('après la creation de la promesse et avant then and catch')
+        p.then(function () {
+            console.log('Success!')
+        }).catch(function (errorMessage) {
+            console.log('Error! : ' + errorMessage);
+        })
+        console.log('après le  then and catch');
+    </script>
+
+</body>
+
+</html>
