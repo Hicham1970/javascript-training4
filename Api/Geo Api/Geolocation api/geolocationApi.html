@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Html Geolocation Api</title>
+  </head>
+  <body>
+    <h1>HTML Geolocation</h1>
+    <p>Click the button to get your coordinates.</p>
+
+    <button onclick="getLocation()">Try It</button>
+
+    <p id="demo"></p>
+
+    <script>
+      const x = document.getElementById("demo");
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+for (let i = 0; i < 5; i++) {
+  console.log('Hello world!');
+}
+
+      function showPosition(position) {
+        x.innerHTML =
+          "Latitude: " +
+          position.coords.latitude +
+          "<br>Longitude: " +
+          position.coords.longitude;
+      }
+    </script>
+  </body>
+</html>

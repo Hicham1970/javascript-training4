@@ -1,0 +1,37 @@
+la method getCurrentPosition():
+??
+Parameters of getCurrentPosition()
+
+The getCurrentPosition() method takes three parameters:
+
+successCallback: A callback function that is called when the user's location is successfully retrieved. This function takes a Position object as an argument.
+errorCallback: A callback function that is called when an error occurs while retrieving the user's location. This function takes a PositionError object as an argument. It's an optional argument.
+options: An optional object that can be used to specify additional options for the location retrieval process.
+Here is an example of how to use the getCurrentPosition() method:
+
+javascript
+Copy code
+navigator.geolocation.getCurrentPosition(
+  function(position) {
+    console.log(`Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`);
+  },
+  function(error) {
+    console.error(`Error: ${error.message}`);
+  },
+  {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  }
+);
+In this example, the getCurrentPosition() method is called with three parameters:
+
+A success callback function that logs the user's latitude and longitude to the console.
+An error callback function that logs an error message to the console if an error occurs.
+An options object that specifies the following:
+enableHighAccuracy: Set to true to request high-accuracy location data.
+timeout: Set to 5000 to specify a timeout of 5 seconds for the location retrieval process.
+maximumAge: Set to 0 to specify that the location data should be retrieved from the device's current location, rather than using a cached location.
+
+
+my Google Map Api Key : "AIzaSyB98833PYilFRJakZZGZMtxgDrwKrEHcgI"

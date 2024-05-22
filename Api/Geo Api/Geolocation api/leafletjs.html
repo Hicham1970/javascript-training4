@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Initiation to the Leaf_let_js Library</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 10;
+        background-color: black;
+        color: white;
+      }
+      #map {
+        height: 400px;
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Basics of Leaflet</h1>
+    <h4>
+      setting up a Leaflet map, working with markers, poly lines and popups, and
+      dealing with events.
+    </h4>
+    <div id="map"></div>
+    <script>
+      let map = L.map("map");
+      // create an object containing the coordinates for the center of the map
+      map.setView([52.63144, -5.453339], 13);
+      // create a tile layer and add it to the map:
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map);
+      // We need a dynamic coordinate to geo locate the user in the map:
+      navigator.geolocation.watchPosition(success, failure);
+
+      let greenMarker;
+      let redCircle;
+      let zoomed;
+
+      function success(position) {
+        const latitude = position.coords.latitude;
+        const accuracy = position.coords.accuracy;
+        const longitude = position.coords.longitude;
+
+        // create a marker:
+        if (greenMarker) {
+          map.removeLayer(greenMarker);
+        }
+        greenMarker = L.marker([latitude, longitude]).addTo(map);
+        greenMarker.bindPopup(
+          `You are here. Your latitude is ${latitude} and your longitude is : ${longitude}`
+        );
+        greenMarker.openPopup();
+
+        // create a circle around users location showing the accuracy:
+        if (redCircle) {
+          map.removeLayer(redCircle);
+        }
+        redCircle = L.redCircle([latitude, longitude], {
+          color: "red",
+          fillColor: "red",
+          fillOpacity: 0.1,
+          radius: accuracy,
+        }).addTo(map);
+        redCircle.bindPopup(
+          `You are here with an accuracy of ${accuracy} meters.`
+        );
+        redCircle.openPopup();
+        if (!zoomed) {
+          zoomed = map.fitBounds(redCircle.getBounds());
+        }
+        map.setView([latitude, longitude]);
+        map.setZoom(18);
+      }
+
+      function failure(error) {
+        if (error.code === 1) {
+          alert("Error: Access is denied!");
+        } else if (error.code === 2) {
+          alert("Error: Position is unavailable!");
+        } else {
+          alert("Error: Unknown error!");
+        }
+      }
+    </script>
+  </body>
+</html>

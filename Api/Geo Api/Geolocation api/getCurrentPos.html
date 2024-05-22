@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example 1 using the geolocation Api</title>
+  </head>
+  <body>
+    <h1>Using the geolocation Api</h1>
+    <div id="map">Watching your location...</div>
+    <br />
+
+    <!-- Button to start watching -->
+    <button type="button" onclick="localization()">Geo</button>
+    <script>
+      navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        // Show a map centered at latitude / longitude.
+        map.innerHTML='<iframe width="700" height = "300" src="https://maps.google.com/maps?q='+latitude+','+longitude+'&amp;z=15&amp;output=embed"></iframe>';
+        
+      });
+    </script>
+  </body>
+</html>

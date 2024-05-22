@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Up date the Position By Watching</title>
+  </head>
+  <body>
+    <h1>Using the geolocation Api watchPosition Method</h1>
+    <div id="details">Keep Watching your location...</div>
+    <!-- Displaying the updated location details -->
+    <br />
+
+    <!-- Button to start watching -->
+    <button type="button" onclick="successCallback()">Start Watching</button
+    ><br /><br />
+    <button type="button" onclick="buttonClickHandler()">Stop Watching</button
+    ><br /><br />
+
+    <script>
+      // Initializing the request count variable
+      let reqCount = 0;
+
+      // Calling the watchPosition method of the geolocation API
+      navigator.geolocation.watchPosition(
+        successCallback, // Success callback function
+        errorCallback, // Error callback function
+        options // Options for the watchPosition method
+      );
+
+      // Logging the position object to the console
+      console.log(position);
+
+      // Success callback function
+      function successCallback(position) {
+        // Destructuring the coords property of the position object
+        const {
+          accuracy, // Accuracy of the position
+          latitude, // Latitude of the position
+          longitude, // Longitude of the position
+          altitude, // Altitude of the position
+          heading, // Heading of the position
+          speed, // Speed of the position
+        } = position.coords;
+
+        // Incrementing the request count
+        reqCount++;
+
+        // Updating the HTML of the 'details' element
+        details.innerHTML = "Accuracy: " + accuracy + "<br />";
+        details.innerHTML +=
+          "Latitude: " + latitude + " || Longitude: " + longitude + "<br />";
+        details.innerHTML += "Altitude : " + altitude + "<br />";
+        details.innerHTML += "Heading: " + heading + "<br />";
+        details.innerHTML += "Speed: " + speed + "<br />";
+        details.innerHTML += "ReqCount: " + reqCount;
+      }
+
+      // Error callback function
+      function errorCallback(error) {
+        console.log(error); // Logging the error object to the console
+      }
+
+      // Options for the watchPosition method
+      let options = {
+        enableHighAccuracy: true, // Request high accuracy position
+        timeout: 5000, // Timeout after 5000 milliseconds
+        maximumAge: 0, // Don't use cached position
+      };
+      const watchId = navigator.geolocation.watchPosition((position) =>
+        console.log(position)
+      );
+
+      function buttonClickHandler() {
+        // Cancel the updates when the user clicks a button.
+        navigator.geolocation.clearWatch(watchId);
+        details.innerHTML = "Updates cancelled";
+      }
+    </script>
+  </body>
+</html>
