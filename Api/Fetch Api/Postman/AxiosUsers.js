@@ -1,6 +1,9 @@
 // Using the axios library, elle fait le job de la method fetch(), donne une promesse suivie par then()
 // Ici on va utiliser cette biblio a travers le cdn script dans le document html
 // voir plus loin comment installer via le npm
+// le npm ou node package module: gestionnaire des dependence;
+// on l'install via npm install axios --save
+// Puis on indique le chemin d'accès pour le module axios.je de la bibliothèque.
 
 function getUsersByAxios() {
   return new Promise((resolve, reject) => {
