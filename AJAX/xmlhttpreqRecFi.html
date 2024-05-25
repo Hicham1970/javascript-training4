@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+
+<body>
+    <h1>Ajax:Async Javascript & Xml</h1>
+
+    <div id="demo"><br><br>
+        <form action="" id="myForm">
+            <input type="text" placeholder="Enter le fichier à récupérer" id="fichier"><br>
+            <button type="submit">Choisit un fichier</button>
+        </form>
+
+
+    </div>
+    <script>
+        function récupFichier(fichier) {
+            let std = document.getElementById('demo');
+            let xhr = new XMLHttpRequest()
+
+            xhr.onreadystatechange = function () {
+                console.log(this); // affichage des 4 stats
+                if (this.readyState == 4 && this.status == 200) {
+                    std.innerHTML = this.responseText;
+                    // console.log(this.response);
+                }
+                else if (this.readyState == 4 && this.status == 404) {
+                    std.innerHTML = "Error 404"
+                }
+            }
+
+            xhr.open('GET', '../Ajax/' + fichier, true)
+            xhr.responseType = "text"
+            xhr.send()
+
+        }
+        // récupFichier(ajax_info.txt)
+        // récupFichier(data.json)
+        document.getElementById('myForm').addEventListener('submit', (e) => {
+            e.preventDefault()
+            let fichierARécupérer = document.getElementById('fichier').value;
+            récupFichier(fichierARécupérer)
+            // console.log(fichierARécupérer)
+            return false
+        })
+    </script>
+
+</body>
+
+</html>

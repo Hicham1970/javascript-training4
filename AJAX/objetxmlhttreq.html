@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+
+<body>
+    <h1>Ajax:Async Javascript & Xml</h1>
+    <p>Il faut savoir que la differnce entre une requette synchrone et une requette asnchrone, est que par exemple quand
+        on rafraichit une page web, alors on fait une requette synchrone cad qu'on va quitter la page et y revenir . par
+        contre une requette asynchrone nous permet de ne pas quitter la page web , au même temps recuperer des données
+        sur le serveur .</p>
+    <p>Autre information ; c'est que la requette get apparait dans les url et les requettes post sont masquées</p>
+    <div id="demo">
+
+    </div>
+    <script>
+        let std = document.getElementById('demo');
+        let xhr = new XMLHttpRequest()
+
+        xhr.onreadystatechange = function () {
+            console.log(this); // affichage des 4 stats
+            if (this.readyState == 4 && this.status == 200) {
+                // std.innerHTML = this.responseText;
+                // console.log(this.response);
+                let utilisateurs = this.response.utilisateurs;
+                // console.log(utilisateurs)
+                for (let i = 0; i < utilisateurs.length; i++) {
+                    std.innerHTML += `<h1>${utilisateurs[i].prénom} agé de  ( ${utilisateurs[i].age} ans)</h1> `;
+                    ;
+                    console.log(utilisateurs[i])
+                }
+            }
+            else if (this.readyState == 4 && this.status == 404) {
+                std.innerHTML = "Error 404"
+            }
+        }
+
+        xhr.open('GET', '../Ajax/data.json', true)
+        xhr.responseType = "json"
+        xhr.send()
+
+
+    </script>
+
+</body>
+
+</html>

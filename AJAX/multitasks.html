@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple tasks</title>
+</head>
+
+<body>
+    <h1>Multiple CallBacks for One Request</h1>
+    <p id="demo"></p>
+    <button type="button" id="get-txt" onclick="loadDoc('ajax_info.txt', myFunction1)">Get Text</button>
+    <button type="button" id="get-json" onclick="loadDoc('data.json', myFunction2)">Get Json</button>
+    <br><br>
+    <div id="demo1"></div><br><br>
+    <div id="demo2"></div>
+    <script>
+        loadDoc("ajax_info.txt", myFunction1);
+
+        loadDoc("data.json", myFunction2);
+
+        function loadDoc(url, cFunction) {
+            const http = new XMLHttpRequest();
+            http.onload = function () { cFunction(this); }
+            http.open("GET", url);
+            http.send();
+        }
+
+        function myFunction1(http) {
+            document.getElementById('demo1').innerHTML = this.responseText;
+
+        }
+        function myFunction2(http) {
+            document.getElementById('demo2').innerHTML = this.responseText;
+            // action goes here
+        }
+
+    </script>
+
+</body>
+
+</html>

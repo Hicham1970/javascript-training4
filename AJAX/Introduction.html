@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The XMLHTTPRequest Object</title>
+</head>
+
+<body>
+    <div id="demo">
+        <h2>The XMLHttpRequest Object</h2>
+        <!--Creation du déclencheur de la request-->
+        <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>
+
+    <script>
+        function loadDoc() {
+            //Creation de la request
+            const request = new XMLHttpRequest();
+            // Callback function
+            request.onload = function () {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+            // send the request:
+            request.open("GET", "data.json");
+            request.send();
+        }
+    </script>
+
+
+</body>
+
+</html>
