@@ -4,14 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Horoscope </title>
+    <title>Utilisateurs en Tables</title>
+    <style>
+        #utilisateurs_tab {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #utilisateurs_tab td,
+        #utilisateurs_tab th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #utilisateurs_tab tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #utilisateurs_tab tr:hover {
+            background-color: #ddd;
+        }
+
+        #utilisateurs_tab th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #04aa6d;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        img {
+            width: 250px;
+            height: 250px;
+
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Aries Daily Horoscope</h1><br><br>
-    <p id="Aries"></p>
-    <button type="button" onclick="getAriesDailyHoroscope()">Get Aries Horoscope</button>
-    <script src="horoscope.js"></script>
+    <h1>Utilisateurs en tables</h1>
+    <table id="utilisateurs_tab">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Age</th>
+                <th>Emploi</th>
+                <th>Adresse</th>
+                <th>Spécialité</th>
+                <th>Hobbies</th>
+            </tr>
+        </thead>
+        <tbody id="data_contenu">
+            <!-- <tr>
+                <td>John</td>
+                <td>Do</td>
+                <td>34</td>
+                <td>Concepteur Web</td>
+                <td>Av. des FAR 66</td>
+                <td>Music</td>
+                <td>Lecture</td>
+            </tr> -->
+
+        </tbody>
+    </table>
+
+    <script src="/node_modules/axios/dist/axios.js"></script>
+    <script src="util.js"></script>
+
 </body>
 
 </html>
