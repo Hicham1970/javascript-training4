@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Post </title>
+</head>
+
+<body>
+    <h1>cd_catalog.xml</h1>
+
+    <p id="demo"></p>
+    <script>
+        let req = new XMLHttpRequest();
+
+        req.onload = () => {
+            if (req.readyState == 4 && req.status == 201) {
+                let réponse = JSON.parse(req.response)
+                console.log(réponse);
+            }
+            else {
+                console.log("la data n'a pas été poster")
+            }
+        }
+
+
+        req.open("POST", "https://jsonplaceholder.typicode.com/posts", true);
+        let data = {
+            Id: 1,
+            title: "Titre test",
+            body: "Je suis conscient \n Mon nom est Hicham Garoum "
+        }
+        req.send(JSON.stringify(data));
+        console.log(req)
+
+
+    </script>
+
+
+</body>
+
+</html>

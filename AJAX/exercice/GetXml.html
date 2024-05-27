@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get data from an Xml File</title>
+</head>
+
+<body>
+    <h1>Get info from an Xml file</h1>
+    <p id="demo"></p>
+    <script>
+        let xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+            // console.log(xhr.responseXML);
+            const xmlDoc = new DOMParser().parseFromString(xhr.responseText, "text/xml");
+            console.log(xmlDoc);
+            const acteurs = xmlDoc.querySelectorAll('artist');
+            console.log(acteurs);
+            for (const acteur of acteurs) {
+                const nom = acteur.querySelector('nom').textContent;
+                const naissance = acteur.querySelector('naissance').textContent;
+                document.getElementById('demo').innerHTML += `L 'acteur (ou actrice) ${nom} est né le ${naissance} , on sait jamais ;)` + "<br/>";
+
+            }
+
+        }
+        xhr.open('GET', 'cd_catalog.xml', true);
+        xhr.responseType = "text";
+        xhr.send()
+
+    </script>
+
+</body>
+
+</html>

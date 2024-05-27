@@ -22,7 +22,14 @@
 
         function loadDoc(url, cFunction) {
             const http = new XMLHttpRequest();
-            http.onload = function () { cFunction(this); }
+            http.onload = function () {
+                if (this.readyState === 4 & this.status === 200) {
+
+                    cFunction(this);
+                } else if (response.readyState === 4 & response.status === 404) {
+                    console.log('La recuperation a échoué!')
+                }
+            }
             http.open("GET", url);
             http.send();
         }

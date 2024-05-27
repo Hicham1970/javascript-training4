@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<acteurs>
+  <artist>
+    <nom>Tom Hanks</nom>
+    <naissance>9 juillet 1956</naissance>
+    <lieu>Concord, Californie, États-Unis</lieu>
+    <films>
+      <film>Forrest Gump</film>
+      <film>Saving Private Ryan</film>
+      <film>Cast Away</film>
+    </films>
+  </artist>
+
+  <artist>
+    <nom>Meryl Streep</nom>
+    <naissance>22 juin 1949</naissance>
+    <lieu>Summit, New Jersey, États-Unis</lieu>
+    <films>
+      <film>The Devil Wears Prada</film>
+      <film>Julie &amp; Julia</film>
+      <film>The Iron Lady</film>
+    </films>
+  </artist>
+
+  <artist>
+    <nom>Leonardo DiCaprio</nom>
+    <naissance>11 novembre 1974</naissance>
+    <lieu>Los Angeles, Californie, États-Unis</lieu>
+    <films>
+      <film>Titanic</film>
+      <film>Inception</film>
+      <film>The Revenant</film>
+    </films>
+  </artist>
+
+  <artist>
+    <nom>Julia Roberts</nom>
+    <naissance>28 octobre 1967</naissance>
+    <lieu>Atlanta, Géorgie, États-Unis</lieu>
+    <films>
+      <film>Pretty Woman</film>
+      <film>Notting Hill</film>
+      <film>Erin Brockovich</film>
+    </films>
+  </artist>
+</acteurs>
