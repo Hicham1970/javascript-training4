@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click To display</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>Click on a CD to display album information.</p>
+    <p id='showCD'></p>
+    <table id="demo"></table>
+
+    <script>
+        const xhr = new XMLHttpRequest();
+        let cd;
+        xhr.onload = function () {
+            const xmlDoc = xhr.responseXML;
+            cd = xmlDoc.getElementsByTagName("CD");
+            loadCD();
+        }
+        xhr.open("GET", "cd.xml");
+        xhr.send();
+
+        function loadCD() {
+            let table = "<tr><th>Artist</th><th>Title</th></tr>";
+            for (let i = 0; i < cd.length; i++) {
+                table += "<tr onclick='displayCD(" + i + ")'><td>";
+                table += cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
+                table += "</td><td>";
+                table += cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
+                table += "</td></tr>";
+            }
+            document.getElementById("demo").innerHTML = table;
+        }
+
+        function displayCD(i) {
+            document.getElementById("showCD").innerHTML =
+                "Artist: " +
+                cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+                "<br>Title: " +
+                cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+                "<br>Country: " +
+                cd[i].getElementsByTagName("COUNTRY")[0].childNodes[0].nodeValue +
+                "<br>Year: " +
+                cd[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue +
+                "<br>Company: " +
+                cd[i].getElementsByTagName("COMPANY")[0].childNodes[0].nodeValue +
+                "<br>Price: " +
+                cd[i].getElementsByTagName("PRICE")[0].childNodes[0].nodeValue;
+
+        }
+    </script>
+
+
+</body>
+
+</html>

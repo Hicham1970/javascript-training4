@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve data from Txt</title>
+</head>
+
+<body>
+    <div id="demo">
+        <h2>The XMLHttpRequest Object</h2>
+        <p>Apres le click ; cette div sera remplacer par un text d'un autre fichier</p>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>
+
+    <script>
+        function loadDoc() {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+            xhr.open("GET", "ajax_info.txt");
+            xhr.send();
+        }
+    </script>
+
+</body>
+
+</html>
