@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Info from an xml file</title>
+</head>
+
+<body>
+    <h2>The XMLHttpRequest Object</h2>
+
+    <h2>Retrieve data from XML file</h2>
+
+    <p><b>Status:</b> <span id="A1"></span></p>
+    <p><b>Status text:</b> <span id="A2"></span></p>
+    <p><b>Response:</b> <span id="A3"></span></p>
+
+    <button onclick="loadDoc('cd.xml')">Get XML data</button>
+
+    <script>
+        function loadDoc(url) {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                document.getElementById('A1').innerHTML = this.status;
+                document.getElementById('A2').innerHTML = this.statusText;
+                document.getElementById('A3').innerHTML = this.responseText;
+            }
+            xhr.open("GET", url);
+            xhr.send();
+        }
+    </script>
+
+
+</body>
+
+</html>
