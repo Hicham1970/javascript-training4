@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Récupération des données des pays </title>
+    <style>
+        #pays {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #pays td,
+        #pays th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #pays tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #pays tr:hover {
+            background-color: #ddd;
+        }
+
+        #pays th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #04aa6d;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Storing Countries Data in Table from Api</h1>
+    <div class="container">
+        <table id="pays">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Flag</th>
+                    <th>Population (in Millions)</th>
+                    <th>Area</th>
+                    <th>Calling Code</th>
+                    <th>Capital</th>
+                    <th>Language</th>
+                    <th>Latitude/Longitude</th>
+                    <th>Time Zone</th>
+                </tr>
+            </thead>
+            <tbody id="countries-table-body">
+                <!--Ici sera injecter la data des pays-->
+
+            </tbody>
+        </table>
+    </div>
+    <script src="/node_modules/axios/dist/axios.js"></script>
+    <!-- <script src="infos.js"></script> -->
+    <script src="infosAvecAxiox.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The response of the xmlhttpRequest</title>
+</head>
+
+<body>
+    <h3>Réponse d'une xmlhttpRequest request</h3>
+    <p id="demo"></p>
+    <p id="lastModified"></p>
+    <p id="modified"></p>
+    <script>
+        let xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let response = JSON.parse(xhr.response);
+                console.log(response);
+                let utilisateurs = response.utilisateurs;
+                console.log(utilisateurs);
+                utilisateurs.forEach(element => {
+                    console.log(element);
+                    const nom = element.nom;
+                    const prénom = element.prénom;
+                    const age = element.age;
+                    const adresse = element.adresse.codePostal;
+                    document.getElementById('demo').innerHTML += `Mr.${nom} ${prénom} est agé de ${age} ans, et il a un code postal de : ${adresse}, et c'est un ${element.emploi}.` + "<br/>"
+                });
+                console.log();
+                document.getElementById('lastModified').innerHTML = xhr.getResponseHeader('Last-Modified');
+
+                document.getElementById("modified").innerHTML = "infos of the headers from the server : " + "<br/>" + xhr.getAllResponseHeaders()
+
+            }
+            else if (xhr.readyState == 4 && xhr.status == 404) {
+                console.log('erreur ! page non trouvée')
+
+            }
+        }
+        xhr.open('GET', 'data.json', true);
+        xhr.responseType = "text"
+        xhr.send()
+    </script>
+
+</body>
+
+</html>

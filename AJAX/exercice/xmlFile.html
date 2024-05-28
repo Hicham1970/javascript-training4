@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Récupérer les infos d'une xml file</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>The XMLHttpRequest Object</h2>
+    <h3>XML File </h3>
+
+    <button type="button" onclick="loadDoc()">Get my Actors collection</button>
+    <br><br>
+    <table id="demo"></table>
+
+    <script>
+        function loadDoc() {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                myFunction(this);
+            }
+            xhr.open("GET", "cd_catalog.xml", true);
+            xhr.responseType = "text";
+            xhr.send();
+        }
+        function myFunction(xml) {
+            const xmlDoc = xml.response;
+            if (xmlDoc) {
+                console.log(xmlDoc);
+                console.log("XML file loaded");
+                const xmlObjet = new DOMParser().parseFromString(xmlDoc, 'text/xml');
+                const acteurs = xmlObjet.querySelectorAll('artist');
+
+                let table = "<tr><th>Nom</th><th>Naissance</th><th>Lieu</th><th>Film 1</th><th>FILM 2</th></tr>";
+
+                for (let i = 0; i < acteurs.length; i++) {
+                    table += "<tr><td>" +
+                        acteurs[i].childNodes[1].innerHTML +
+                        "</td><td>" +
+                        acteurs[i].childNodes[3].innerHTML +
+                        "</td><td>" +
+                        acteurs[i].childNodes[5].innerHTML +
+                        "</td><td>" +
+                        acteurs[i].childNodes[7].childNodes[1].innerHTML +
+                        "</td><td>" +
+                        acteurs[i].childNodes[7].childNodes[3].innerHTML +
+
+                        "</td><td>" +
+                        "</td></tr>";
+                }
+                document.getElementById("demo").innerHTML = table
+            } else {
+                console.log("XML file not loaded");
+            }
+
+
+        }
+    </script>
+
+
+</body>
+
+</html>
