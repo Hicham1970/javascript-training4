@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a text from a txt file</title>
+</head>
+
+<body>
+    <h1>Get data from a text file</h1>
+    <p id="demo"></p>
+    <script>
+
+        let xhr = new HttpRequest();
+        xhr.onload = function () {
+            const myObj = JSON.parse(this.responseText);
+            console.log(myObj);
+            document.getElementById('demo').innerHTML = myObj.name;
+        };
+        xhr.open('GET', 'json_demo.txt');
+        xhr.send();
+
+    </script>
+
+</body>
+
+</html>

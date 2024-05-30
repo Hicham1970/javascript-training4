@@ -1,9 +1,9 @@
 // Effectuer une request xml http:
 
-const xmlhttp=HttpRequest();
-xmlhttp.onload = function () {
+const xhr = HttpRequest();
+xhr.onload = function () {
   const myObj = JSON.parse(this.responseText);
   document.getElementById('demo').innerHTML = myObj.name;
 };
-xmlhttp.open('GET', 'json_demo.txt');
-xmlhttp.send();
+xhr.open('GET', 'json_demo.txt');
+xhr.send();
