@@ -4,7 +4,7 @@ const myJSON = JSON.stringify(obj);
 console.log(myJSON); //{"name":"John","age":30,"city":"New York"}
 
 // stringify an Array :
-const arr = ['John', 'Peter', 'Sally', 'Jane'];
+const arr = ['John', 'Peter', 'Sally', 'Jane', 'Tom', 'Alice', 42, true, false];
 
 const myJS = JSON.stringify(arr);
 console.log(myJS);
