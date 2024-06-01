@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <p>This is a simple HTML page that includes a JavaScript function `callback`
+        and a script tag that loads a file named `jj.js`. * The `callback` function
+        simply logs the data passed to it to the console. * The purpose of this page is
+        likely to provide a basic structure for a web page that interacts with the
+        `jj.js` script.</p>
+    <p>We use here the JSONP method: elle permet a la fonction qui se trouve dans mon script interne d'utiliser les
+        paramètres externes . </p>
+    <script type="text/javascript">
+        // creation d'une fonction qui affiche ce qui tu lui donne comme paramètre
+        function callback(data) {
+            console.log(data);
+        }
+    </script>
+    <script type="text/javascript" src="callback.js"></script>
+</body>
+
+</html>
