@@ -1,40 +1,21 @@
-
-callback({
+callBack([{
     "utilisateurs": [{
-        "nom": "Dupont",
-        "prénom": "Jean",
-        "age": 35,
-        "adresse": {
-            "rue": "10 rue de la Paix",
-            "ville": "Paris",
-            "codePostal": "75000"
+            "nom": "Dupont",
+            "prénom": "Jean",
+            "age": 35,
+            "adresse": {
+                "rue": "10 rue de la Paix",
+                "ville": "Paris",
+                "codePostal": "75000"
+            },
+            "emploi": "Développeur Web",
+            "hobbies": ["Lecture", "Cinéma", "Randonnée"],
+            "Spécialité": {
+                "music": ["guitare", "violon", "piano"],
+                "sport": ["tennis", "carting", "bolling"],
+                "etudes": ["Biology", "Math", "Philosophy"]
+            }
         },
-        "emploi": "Développeur Web",
-        "hobbies": [
-            "Lecture",
-            "Cinéma",
-            "Randonnée"
-        ],
-        "Spécialité": {
-            "music": [
-                "guitare",
-                "violon",
-                "piano"
-            ],
-            "sport": [
-                "tennis",
-                "carting",
-                "bowling"
-            ],
-            "etudes": [
-                "Biology",
-                "Math",
-                "Philosophy"
-            ]
-        }
-    }]
-})
-
         {
             "nom": "Samir",
             "prénom": "Godard",
@@ -45,27 +26,11 @@ callback({
                 "codePostal": "75652"
             },
             "emploi": "Créateur de Contenu",
-            "hobbies": [
-                "Lecture",
-                "Cuisine",
-                "Tuer les mouches"
-            ],
+            "hobbies": ["Lecture", "Cuisine", "Tuer les mouches"],
             "Spécialité": {
-                "music": [
-                    "percussion",
-                    "violon",
-                    "alto"
-                ],
-                "sport": [
-                    "tennis",
-                    "carting",
-                    "rugby"
-                ],
-                "etudes": [
-                    "Biology",
-                    "Math",
-                    "Histoire"
-                ]
+                "music": ["percussion", "violon", "alto"],
+                "sport": ["tennis", "carting", "rugby"],
+                "etudes": ["Biology", "Math", "Histoire"]
             }
         },
         {
@@ -78,28 +43,12 @@ callback({
                 "codePostal": "82000"
             },
             "emploi": "Surveillant",
-            "hobbies": [
-                "Tricherie",
-                "Mensonge",
-                "Imprudence"
-            ],
+            "hobbies": ["Tricherie", "Mensonge", "Imprudence"],
             "Spécialité": {
-                "music": [
-                    "Tueur a gage",
-                    "violence conjugale",
-                    "piétinement des normes"
-                ],
-                "sport": [
-                    "Kong Fu",
-                    "karaté",
-                    "box"
-                ],
-                "etudes": [
-                    "Bactériologie",
-                    "Arabe",
-                    "Philosophy"
-                ]
+                "music": ["Tueur a gage", "violence conjugale", "piétinement des normes"],
+                "sport": ["Kong Fu", "karaté", "box"],
+                "etudes": ["Bactériologie", "Arabe", "Philosophy"]
             }
         }
-    ]}])
-    
+    ]
+}])
